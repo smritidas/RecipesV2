@@ -10,9 +10,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class RecipesActivity extends AppCompatActivity {
-    private TextView recipeTextView;
-    private ListView listView;
+    @Bind(R.id.recipeTextView) TextView recipeTextView;
+    @Bind(R.id.listView) ListView listView;
     private String[] recipes = new String[] {"Mashed Potato", "Apple Pie", "Roast Chicken", "Oatmeal Cookies",
             "Pad Thai", "Sushi", "Ramen noodles", "Tacos", "Burrito's",
             "Fish cakes", "Cheeseburger", "Fries", "Chicken soup", "Pasta", "Stew", "Poutine" };
@@ -21,9 +24,8 @@ public class RecipesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
+        ButterKnife.bind(this);
 
-        listView = (ListView) findViewById(R.id.listView);
-        recipeTextView = (TextView) findViewById(R.id.recipeTextView);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
         listView.setAdapter(adapter);

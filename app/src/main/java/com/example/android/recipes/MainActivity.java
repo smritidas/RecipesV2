@@ -11,19 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity {
-    private Button findRecipesButton;
-    private EditText ingredientEditText;
-    private TextView appNameTextView;
+    @Bind(R.id.ingredientEditText) EditText ingredientEditText;
+    @Bind(R.id.findRecipeButton) Button findRecipesButton;
+    @Bind(R.id.appNameTextView) TextView appNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ingredientEditText = (EditText) findViewById(R.id.ingredientEditText);
-        findRecipesButton = (Button) findViewById(R.id.findRecipeButton);
-        appNameTextView = (TextView) findViewById(R.id.appNameTextView);
+        ButterKnife.bind(this);
+
         Typeface openSans = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
         appNameTextView.setTypeface(openSans);
         findRecipesButton.setOnClickListener(new View.OnClickListener() {
