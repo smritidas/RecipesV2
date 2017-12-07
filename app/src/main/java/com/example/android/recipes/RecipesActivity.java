@@ -10,15 +10,20 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RecipesActivity extends AppCompatActivity {
-    @Bind(R.id.recipeTextView) TextView recipeTextView;
-    @Bind(R.id.listView) ListView listView;
+    @BindView(R.id.recipeTextView) TextView recipeTextView;
+    @BindView(R.id.listView) ListView listView;
     private String[] recipes = new String[] {"Mashed Potato", "Apple Pie", "Roast Chicken", "Oatmeal Cookies",
             "Pad Thai", "Sushi", "Ramen noodles", "Tacos", "Burrito's",
             "Fish cakes", "Cheeseburger", "Fries", "Chicken soup", "Pasta", "Stew", "Poutine" };
+
+    private String[] ingredients = new String[]{"Potato", "Cheese", "Apple", "Flour", "Chicken", "Oatmeal",
+            "Shrimp", "Noodles", "Fish", "Taco", "Ground meat", "Chicken", "Pasta", "Banana",
+            "Peas", "Onions"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -11,14 +11,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.ingredientEditText) EditText ingredientEditText;
-    @Bind(R.id.findRecipeButton) Button findRecipesButton;
-    @Bind(R.id.appNameTextView) TextView appNameTextView;
+    @BindView(R.id.ingredientEditText) EditText ingredientEditText;
+    @BindView(R.id.findRecipeButton) Button findRecipesButton;
+    @BindView(R.id.appNameTextView) TextView appNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
