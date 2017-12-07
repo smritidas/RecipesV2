@@ -7,15 +7,15 @@ import android.widget.ArrayAdapter;
 
 public class RecipesArrayAdapter extends ArrayAdapter{
     private Context context;
-    private String[] recipes;
     private String[] things; //this is for the ingredients
+    private String[] recipes;
 
 
-    public RecipesArrayAdapter(@NonNull Context context, int resource, String[] recipes, String[] ingredients) {
+    public RecipesArrayAdapter(@NonNull Context context, int resource, String[] ingredients, String[] recipes) {
         super(context, resource);
         this.context = context;
-        this.recipes = recipes;
         this.things = ingredients;
+        this.recipes = recipes;
     }
 
     @Override
