@@ -12,6 +12,9 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//TODO (1) Follow a coding convention
+//TODO (2) How do I want to structure the API?
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.ingredientEditText) EditText ingredientEditText;
@@ -26,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Typeface openSans = Typeface.createFromAsset(getAssets(), "fonts/OpenSans-Regular.ttf");
         appNameTextView.setTypeface(openSans);
-
         findRecipesButton.setOnClickListener(this);
 
     }

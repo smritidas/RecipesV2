@@ -7,3 +7,10 @@
 /build
 /captures
 .externalNativeBuild
+/app/src/main/res/values/secrets.xml
+.idea/vcs.xml
+app/libs/
+
+/gradle.properties
+
+
