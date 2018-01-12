@@ -12,3 +12,4 @@
 app/libs/
 
 /gradle.properties
+git rm --cached -r .
