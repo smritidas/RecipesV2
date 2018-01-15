@@ -8,11 +8,11 @@ import okhttp3.Request;
 
 public class RecipeService {
 
-    public static void findRecipes(String ingredients, Callback callback){
+    public static void findRecipes(String ingredient, Callback callback){
         OkHttpClient client = new OkHttpClient().newBuilder().build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.RECIPES_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredients);
+        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredient);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()

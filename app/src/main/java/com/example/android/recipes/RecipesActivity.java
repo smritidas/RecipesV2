@@ -56,9 +56,9 @@ public class RecipesActivity extends AppCompatActivity {
         getRecipes(ingredient);
     }
 
-    private void getRecipes(String ingredients){
+    private void getRecipes(String ingredient){
         final RecipeService recipeService = new RecipeService();
-        recipeService.findRecipes(ingredients, new Callback() {
+        recipeService.findRecipes(ingredient, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
