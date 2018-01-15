@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,13 +25,8 @@ public class RecipesActivity extends AppCompatActivity {
     public static final String TAG = RecipesActivity.class.getSimpleName();
     @BindView(R.id.recipeTextView) TextView recipeTextView;
     @BindView(R.id.listView) ListView listView;
-    private String[] recipes = new String[] {"Mashed Potato", "Apple Pie", "Roast Chicken", "Oatmeal Cookies",
-            "Pad Thai", "Sushi", "Ramen noodles", "Tacos", "Burrito's",
-            "Fish cakes", "Cheeseburger", "Fries", "Chicken soup", "Pasta", "Stew", "Poutine" };
 
-    private String[] ingredients = new String[]{"Potato", "Cheese", "Apple", "Flour", "Chicken", "Oatmeal",
-            "Shrimp", "Noodles", "Fish", "Taco", "Ground meat", "Chicken", "Pasta", "Banana",
-            "Peas", "Onions"};
+    public ArrayList<Recipes> recipes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +34,7 @@ public class RecipesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
 
-
-        ArrayAdapter adapter = new RecipesArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients, recipes);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,6 +64,7 @@ public class RecipesActivity extends AppCompatActivity {
                     try{
                         String jsonData = response.body().string();
                         Log.v(TAG, jsonData);
+                        recipes = recipeService.processResults(response);
                     } catch(IOException e){
                         e.printStackTrace();
                 }

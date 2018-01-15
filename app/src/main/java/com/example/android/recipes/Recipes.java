@@ -4,7 +4,7 @@ package com.example.android.recipes;
 import java.util.ArrayList;
 
 public class Recipes {
-    private String label; //recipe name
+    private String name; //in the API they call this label
     private String imageURL;
     private String url; //original recipe identifier
     private int noOfServings;
@@ -12,9 +12,9 @@ public class Recipes {
 
     public Recipes(){};
 
-    public Recipes(String label, String imageURL, String url,
+    public Recipes(String name, String imageURL, String url,
                    int noOfServings, ArrayList<String> ingredients) {
-        this.label = label;
+        this.name = name;
         this.imageURL = imageURL;
         this.url = url;
         this.noOfServings = noOfServings;
@@ -22,7 +22,7 @@ public class Recipes {
     };
 
     public String getLabel() {
-        return label;
+        return name;
     }
 
     public String getImageURL() {
