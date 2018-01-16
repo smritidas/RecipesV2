@@ -21,7 +21,7 @@ public class Recipes {
         this.ingredients = ingredients;
     };
 
-    public String getLabel() {
+    public String getName() {
         return name;
     }
 

@@ -54,7 +54,6 @@ public class RecipeService {
 
                     Recipes food = new Recipes(name, imageURL, URL, noOfServings, recipe);
                     recipes.add(food);
-
                 }
             }
 

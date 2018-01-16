@@ -23,6 +23,7 @@ import okhttp3.Response;
 
 public class RecipesActivity extends AppCompatActivity {
     public static final String TAG = RecipesActivity.class.getSimpleName();
+
     @BindView(R.id.recipeTextView) TextView recipeTextView;
     @BindView(R.id.listView) ListView listView;
 
@@ -34,19 +35,9 @@ public class RecipesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
-        listView.setAdapter(adapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(RecipesActivity.this, restaurant, Toast.LENGTH_LONG).show();
-            }
-        });
-
         Intent intent = getIntent();
         String ingredient = intent.getStringExtra("ingredient");
+
         recipeTextView.setText("Here are all the restaurants near: " + ingredient);
         getRecipes(ingredient);
     }
@@ -60,15 +51,33 @@ public class RecipesActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                    try{
-                        String jsonData = response.body().string();
-                        Log.v(TAG, jsonData);
-                        recipes = recipeService.processResults(response);
-                    } catch(IOException e){
-                        e.printStackTrace();
+            public void onResponse(Call call, Response response) {
+                    recipes = recipeService.processResults(response);
+
+                    RecipesActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            String[] recipeNames =  new String[recipes.size()];
+                            for (int i = 0; i < recipeNames.length; i++ ){
+                                recipeNames[i] = recipes.get(i).getName();
+                            }
+                            ArrayAdapter adapter = new ArrayAdapter(RecipesActivity.this,
+                                    android.R.layout.simple_list_item_1, recipeNames);
+                                    listView.setAdapter(adapter);
+
+                                    for (Recipes recipe : recipes){
+                                        Log.d(TAG, "Name: " + recipe.getName());
+                                        Log.d(TAG, "Image: " + recipe.getImageURL());
+                                        Log.d(TAG, "URL: " + recipe.getUrl());
+                                        Log.d(TAG, "Servings: " + Integer.toString(recipe.getNoOfServings()));
+                                        Log.d(TAG, "Ingredients: " + android.text.TextUtils.join(", ", recipe.getIngredients()));
+                                    }
+                        }
+                    });
+
                 }
-            }
+
         });
     }
+
 }
