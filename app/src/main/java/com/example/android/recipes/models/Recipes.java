@@ -1,4 +1,4 @@
-package com.example.android.recipes;
+package com.example.android.recipes.models;
 
 
 import java.util.ArrayList;

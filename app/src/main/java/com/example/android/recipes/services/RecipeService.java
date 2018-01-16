@@ -1,4 +1,7 @@
-package com.example.android.recipes;
+package com.example.android.recipes.services;
+
+import com.example.android.recipes.Constants;
+import com.example.android.recipes.models.Recipes;
 
 import org.json.JSONArray;
 import org.json.JSONException;
