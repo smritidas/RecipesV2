@@ -36,7 +36,7 @@
             android:text="@string/servings"
             android:textColor="@color/colorPrimaryText"
             />
-
+        <!-- TODO (3) Fix the alignments of the textviews -->
         <!-- TODO (4) Where to put ingredients? -->
     </LinearLayout>
 
