@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.android.recipes.R;
 import com.example.android.recipes.models.Recipes;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
        }
 
        public void bindRecipe(Recipes recipe){
+           Picasso.with(mContext).load(recipe.getImageURL()).into(mRecipeImageView);
            mRecipeNameTextView.setText(recipe.getName());
            mNoOfServings.setText(recipe.getNoOfServings());
        }
@@ -63,4 +65,5 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     public int getItemCount() {
         return mRecipe.size();
     }
+
 }
