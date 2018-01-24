@@ -28,26 +28,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         mRecipe = recipes;
     }
 
-    public class RecipeViewHolder extends RecyclerView.ViewHolder{
-       @BindView(R.id.recipeImageView) ImageView mRecipeImageView;
-       @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextView;
-       @BindView(R.id.noOfServings) TextView mNoOfServings;
-
-       private Context mContext;
-
-       public RecipeViewHolder(View itemView){
-           super(itemView);
-           ButterKnife.bind(this, itemView);
-           mContext = itemView.getContext();
-       }
-
-       public void bindRecipe(Recipes recipe){
-           Picasso.with(mContext).load(recipe.getImageURL()).into(mRecipeImageView);
-           mRecipeNameTextView.setText(recipe.getName());
-           mNoOfServings.setText(recipe.getNoOfServings());
-       }
-    }
-
     @Override
     public RecipeListAdapter.RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_list_item,
@@ -66,4 +46,23 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         return mRecipe.size();
     }
 
+    public class RecipeViewHolder extends RecyclerView.ViewHolder{
+        @BindView(R.id.recipeImageView) ImageView mRecipeImageView;
+        @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextView;
+        @BindView(R.id.noOfServings) TextView mNoOfServings;
+
+        private Context mContext;
+
+        public RecipeViewHolder(View itemView){
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+        }
+
+        public void bindRecipe(Recipes recipe){
+            Picasso.with(mContext).load(recipe.getImageURL()).into(mRecipeImageView);
+            mRecipeNameTextView.setText(recipe.getName());
+            mNoOfServings.setText(recipe.getNoOfServings());
+        }
+    }
 }

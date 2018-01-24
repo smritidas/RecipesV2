@@ -31,7 +31,7 @@ public class RecipesActivity extends AppCompatActivity {
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private RecipeListAdapter mAdapter;
 
-    public ArrayList<Recipes> recipes = new ArrayList<>();
+    public ArrayList<Recipes> mRecipes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +54,16 @@ public class RecipesActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) {
-                recipes = recipeService.processResults(response);
+                mRecipes = recipeService.processResults(response);
 
                 RecipesActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter = new RecipeListAdapter(getApplicationContext(), recipes);
-                        mRecyclerView.setAdapter(mAdapter);
+                        mAdapter = new RecipeListAdapter(getApplicationContext(), mRecipes);
                         RecyclerView.LayoutManager layoutManager =
                                 new LinearLayoutManager(RecipesActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setAdapter(mAdapter);
                         mRecyclerView.setHasFixedSize(true);
                     }
 
