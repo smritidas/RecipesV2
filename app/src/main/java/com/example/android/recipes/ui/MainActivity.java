@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == findRecipesButton){
             String ingredient = ingredientEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, RecipesActivity.class);
+            Intent intent = new Intent(MainActivity.this, RecipesListActivity.class);
             intent.putExtra("ingredient", ingredient);
             startActivity(intent);
         }
