@@ -31,7 +31,7 @@ public class RecipeDetailFragment extends Fragment {
 
     private Recipes mRecipe;
 
-    public RecipeDetailFragment newInstance(Recipes recipe){
+    public static RecipeDetailFragment newInstance(Recipes recipe){
         RecipeDetailFragment recipeDetailFragment = new RecipeDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("recipes", Parcels.wrap(recipe));
@@ -50,7 +50,7 @@ public class RecipeDetailFragment extends Fragment {
         mServingsTextView.setText(mRecipe.getNoOfServings());
         mDirectionsTextView.setText(mRecipe.getUrl());
 
-        //TODO - wire up the ingredientListView
+        //TODO - wire up the ingredientListView - how do I want do handle this?
         //TODO - wire up the button
 
 
