@@ -20,11 +20,14 @@ import okhttp3.Response;
 public class RecipeService {
 
     public static void findRecipes(String ingredient, Callback callback){
+        String APP_KEY = Constants.APP_KEY;
+        String APP_ID = Constants.APP_ID;
         OkHttpClient client = new OkHttpClient().newBuilder().build();
-
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.RECIPES_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredient);
         String url = urlBuilder.build().toString();
+        urlBuilder.addQueryParameter(Constants.QUERY_PARAMETER, ingredient);
+        urlBuilder.addQueryParameter(Constants.APP_QUERY_PARAMETER, APP_ID);
+        urlBuilder.addQueryParameter(Constants.KEY_QUERY_PARAMETER, APP_KEY);
 
         Request request = new Request.Builder()
                 .url(url)

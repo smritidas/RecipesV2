@@ -28,6 +28,7 @@ public class Recipes {
     public String getImageURL() {
         return imageURL;
     }
+    //TODO - if need be, look into resizing images so no memory crash
 
     public String getUrl() {
         return url;

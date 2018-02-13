@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//TODO - To add an implicit intent if the user wants to share the recipe via text/email?
+
 public class RecipeDetailActivity extends AppCompatActivity{
    @BindView(R.id.viewPager) ViewPager mViewPager;
    private RecipePagerAdapter adapterViewPager;
