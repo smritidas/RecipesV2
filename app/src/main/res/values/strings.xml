@@ -6,4 +6,5 @@
     <string name="servings">Number of Servings</string>
     <string name="directions">Directions:</string>
     <string name="save">Save Recipe</string>
+    <string name="ingredients">Ingredients:</string>
 </resources>
