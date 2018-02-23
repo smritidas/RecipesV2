@@ -14,8 +14,7 @@
         android:layout_height="match_parent"
         android:id="@+id/imageView"
         android:src="@drawable/recipes_pic"
-        android:scaleType="centerCrop"
-        />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="wrap_content"
