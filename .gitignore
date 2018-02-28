@@ -14,3 +14,5 @@ app/libs/
 /gradle.properties
 git rm --cached -r .
 !/gradle.properties
+
+app/src/main/res/drawable/tea.jpg
