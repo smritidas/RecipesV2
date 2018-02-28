@@ -22,10 +22,10 @@ import butterknife.ButterKnife;
 
 
 public class RecipeDetailFragment extends Fragment {
-    @BindView(R.id.recipeTextView) ImageView mRecipeImageView;
+  //  @BindView(R.id.recipeTextView) ImageView mRecipeImageView;
     @BindView(R.id.recipeNameTextView) TextView mRecipeNameTextView;
     @BindView(R.id.noOfServings) TextView mServingsTextView;
-    @BindView(R.id.ingredientListView) ListView mIngredientListView;
+   // @BindView(R.id.ingredientListView) ListView mIngredientListView;
     @BindView(R.id.directions) TextView mDirectionsTextView;
     @BindView(R.id.saveRecipeButton) Button mButton;
 
@@ -44,7 +44,7 @@ public class RecipeDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
-        Picasso.with(view.getContext()).load(mRecipe.getImageURL()).into(mRecipeImageView);
+      //  Picasso.with(view.getContext()).load(mRecipe.getImageURL()).into(mRecipeImageView);
 
         mRecipeNameTextView.setText(mRecipe.getName());
         mServingsTextView.setText(mRecipe.getNoOfServings());
@@ -52,6 +52,7 @@ public class RecipeDetailFragment extends Fragment {
 
         //TODO - wire up the ingredientListView - how do I want do handle this?
         //TODO - wire up the button
+        //TODO - fix the missing views and use Picasso
 
 
         return view;
