@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Recipes</string>
-    <string name="enter_ingredients">Enter Ideas/Keywords Here:</string>
+    <string name="enter_ingredients">Enter Ingredients Here:</string>
     <string name="find_recipes">Find Recipes</string>
     <string name="recipe_name">Recipe Name</string>
     <string name="servings">Number of Servings</string>
